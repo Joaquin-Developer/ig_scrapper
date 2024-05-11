@@ -13,10 +13,17 @@ logging.basicConfig(level=logging.INFO)
 
 
 def get_credentials() -> Tuple[str, str]:
+    "Get user/passw by envs"
     return os.getenv("IG_USERNAME"), os.getenv("IG_PASSWORD")
 
 
 def get_followers(username: str) -> List[str]:
+    """
+    Args:
+        username: user to search
+    Returns:
+        list: followers
+    """
     user, passw = get_credentials()
     igloader = instaloader.Instaloader()
     igloader.login(user, passw)
