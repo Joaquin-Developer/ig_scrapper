@@ -52,8 +52,12 @@ def main():
 
     logging.info("Username: %s", username)
 
-    logging.info(len(followers_list))
+    count = len(followers_list)
+    if count < 1:
+        logging.warning("NO data.")
+        return
 
+    logging.info("Len: %i", count)
     save_json_file(followers_list)
 
 
